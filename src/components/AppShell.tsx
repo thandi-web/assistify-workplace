@@ -51,12 +51,12 @@ export function AppShell({ children }: { children: ReactNode }) {
 
   const SidebarInner = (
     <div className="flex h-full w-64 flex-col border-r bg-sidebar text-sidebar-foreground">
-      <div className="flex items-center gap-2 px-5 py-5 border-b">
-        <div className="grid h-8 w-8 place-items-center rounded-md bg-primary text-primary-foreground">
+      <div className="flex items-center gap-3 px-5 py-5 border-b">
+        <div className="grid h-9 w-9 place-items-center rounded-xl bg-gradient-brand text-white shadow-glow">
           <Sparkles className="h-4 w-4" />
         </div>
         <div className="leading-tight">
-          <div className="font-semibold tracking-tight">Workly</div>
+          <div className="font-semibold tracking-tight text-gradient-brand">Workly</div>
           <div className="text-xs text-muted-foreground">AI productivity</div>
         </div>
       </div>
@@ -70,9 +70,9 @@ export function AppShell({ children }: { children: ReactNode }) {
               key={item.to}
               to={item.to}
               className={cn(
-                "flex items-center gap-3 rounded-md px-3 py-2 text-sm transition-colors",
+                "flex items-center gap-3 rounded-lg px-3 py-2 text-sm transition-all",
                 active
-                  ? "bg-sidebar-accent text-sidebar-accent-foreground font-medium"
+                  ? "bg-gradient-brand text-white font-medium shadow-glow"
                   : "text-muted-foreground hover:bg-sidebar-accent/60 hover:text-sidebar-accent-foreground",
               )}
             >
@@ -94,7 +94,7 @@ export function AppShell({ children }: { children: ReactNode }) {
   );
 
   return (
-    <div className="flex min-h-screen w-full bg-muted/30">
+    <div className="flex min-h-screen w-full bg-gradient-soft">
       <aside className="hidden md:block sticky top-0 h-screen">{SidebarInner}</aside>
       {open && (
         <div className="fixed inset-0 z-50 md:hidden">
@@ -112,8 +112,10 @@ export function AppShell({ children }: { children: ReactNode }) {
             <Menu className="h-4 w-4" />
           </button>
           <div className="flex items-center gap-2">
-            <Sparkles className="h-4 w-4 text-primary" />
-            <span className="font-semibold">Workly</span>
+            <div className="grid h-7 w-7 place-items-center rounded-lg bg-gradient-brand text-white">
+              <Sparkles className="h-3.5 w-3.5" />
+            </div>
+            <span className="font-semibold text-gradient-brand">Workly</span>
           </div>
           <div className="w-9" />
         </header>
