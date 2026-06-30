@@ -15,14 +15,21 @@ import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
-const NAV = [
+type NavItem = {
+  to: "/" | "/email" | "/meetings" | "/planner" | "/research" | "/chat";
+  label: string;
+  icon: typeof LayoutDashboard;
+  exact?: boolean;
+};
+
+const NAV: NavItem[] = [
   { to: "/", label: "Dashboard", icon: LayoutDashboard, exact: true },
   { to: "/email", label: "Email Generator", icon: Mail },
   { to: "/meetings", label: "Meeting Notes", icon: ClipboardList },
   { to: "/planner", label: "Task Planner", icon: ListChecks },
   { to: "/research", label: "Research", icon: BookOpen },
   { to: "/chat", label: "AI Chat", icon: MessageSquare },
-] as const;
+];
 
 export function AppShell({ children }: { children: ReactNode }) {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
