@@ -75,27 +75,32 @@ function AuthPage() {
 
   return (
     <div className="min-h-screen grid lg:grid-cols-2 bg-background">
-      <div className="hidden lg:flex flex-col justify-between bg-primary text-primary-foreground p-10">
-        <div className="flex items-center gap-2">
-          <div className="grid h-9 w-9 place-items-center rounded-md bg-primary-foreground/10">
+      <div className="hidden lg:flex relative overflow-hidden flex-col justify-between bg-gradient-brand text-white p-10">
+        <div className="absolute -top-24 -right-24 h-80 w-80 rounded-full bg-white/15 blur-3xl" />
+        <div className="absolute -bottom-32 -left-20 h-96 w-96 rounded-full bg-white/10 blur-3xl" />
+        <div className="relative flex items-center gap-2">
+          <div className="grid h-10 w-10 place-items-center rounded-xl bg-white/15 backdrop-blur">
             <Sparkles className="h-5 w-5" />
           </div>
           <span className="text-lg font-semibold tracking-tight">Workly</span>
         </div>
-        <div className="space-y-4 max-w-md">
-          <h1 className="text-4xl font-semibold tracking-tight leading-tight">
+        <div className="relative space-y-5 max-w-md">
+          <span className="inline-flex items-center gap-2 rounded-full bg-white/15 px-3 py-1 text-xs font-medium backdrop-blur">
+            <span className="h-1.5 w-1.5 rounded-full bg-white animate-pulse" /> AI workplace co‑pilot
+          </span>
+          <h1 className="text-5xl font-semibold tracking-tight leading-[1.05]">
             Your AI assistant for the workday.
           </h1>
-          <p className="text-primary-foreground/80">
-            Draft emails, summarize meetings, plan tasks, and research topics — all in one clean
+          <p className="text-white/85 text-lg">
+            Draft emails, summarize meetings, plan tasks, and research topics — all in one vibrant
             workspace.
           </p>
         </div>
-        <p className="text-xs text-primary-foreground/70">
+        <p className="relative text-xs text-white/75">
           AI outputs may be inaccurate. Always review before acting on them.
         </p>
       </div>
-      <div className="flex items-center justify-center p-6">
+      <div className="flex items-center justify-center p-6 bg-gradient-soft lg:bg-none">
         <Card className="w-full max-w-md">
           <CardHeader>
             <CardTitle className="text-2xl">
